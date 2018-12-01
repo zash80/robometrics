@@ -117,6 +117,10 @@ objects:
       port: 8080
       protocol: TCP
       targetPort: 8080
+    - name: zeromq
+        port: 5555
+        protocol: TCP
+        targetPort: 5555
     selector:
       app: spring-boot-rest-http
       provider: snowdrop
