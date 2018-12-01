@@ -161,6 +161,9 @@ objects:
           - containerPort: 8080
             name: http
             protocol: TCP
+        - containerPort: 5555
+            name: zeromq
+            protocol: TCP
           - containerPort: 8778
             name: jolokia
             protocol: TCP
@@ -200,6 +203,21 @@ objects:
   spec:
     port:
       targetPort: 8080
+    to:
+      kind: Service
+      name: spring-boot-rest-http
+- apiVersion: v1
+  kind: Route
+  metadata:
+    labels:
+      app: spring-boot-zeromq
+      provider: snowdrop
+      version: "1.5.17-4-redhat"
+      group: io.openshift.booster
+    name: spring-boot-zeromq
+  spec:
+    port:
+      targetPort: 5555
     to:
       kind: Service
       name: spring-boot-rest-http
