@@ -1,0 +1,8 @@
+metadata:
+  name: zeromq
+spec:
+  ports:
+    - name: "zeromq"
+      port: 5555
+      protocol: "TCP"
+      targetPort: 5555
